@@ -16,7 +16,7 @@ to runclock :hh :mm
  print [e]
  print :mm
  ;pause before drawing next clock
- repeat 135 * 300 [] ; 60 seconds (vice)
+ repeat 138 * 300 [] ; 60 seconds (vice)
  runclock :hh :mm
 end
 
