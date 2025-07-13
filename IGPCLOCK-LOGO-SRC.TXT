@@ -1,4 +1,4 @@
-to runclock :hh :mm
+to clock :hh :mm
  ; ----------------------------
  ; igp tech blog c. 2025
  ; written on jul 12 2025
@@ -17,7 +17,7 @@ to runclock :hh :mm
  print :mm
  ;pause before drawing next clock
  repeat 135 * 300 [] ; 60 seconds (vice)
- runclock :hh :mm
+ clock :hh :mm
 end
 
 to pos :l :a
