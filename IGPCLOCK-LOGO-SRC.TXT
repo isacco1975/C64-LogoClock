@@ -1,190 +1,190 @@
-TO RUNCLOCK :HH :MM
+to runclock :hh :mm
  ; ----------------------------
- ; IGP TECH BLOG C. 2025
- ; WRITTEN ON JUL 12 2025
+ ; igp tech blog c. 2025
+ ; written on jul 12 2025
  ; ----------------------------
- ; ALL RIGHTS RESERVED
+ ; all rights reserved
  ; ----------------------------
- ; - THIS IS THE MAIN RTN    --
+ ; - this is the main rtn    --
  ; ----------------------------
- MAKE "MM :MM + 1
- IF :MM > 59 THEN MAKE "MM 0 MAKE "HH :HH + 1
- IF :HH > 23 THEN MAKE "HH 0
- DT :HH :MM
- PRINT [AGGIORNAMENTO ORARIO - SONO LE ORE]
- PRINT :HH
- PRINT [E]
- PRINT :MM
- ;PAUSE BEFORE DRAWING NEXT CLOCK
- REPEAT 140 * 300 [] ; 60 SECONDS
- RUNCLOCK :HH :MM
-END
+ make "mm :mm + 1
+ if :mm > 59 then make "mm 0 make "hh :hh + 1
+ if :hh > 23 then make "hh 0
+ dt :hh :mm
+ print [aggiornamento orario - sono le ore]
+ print :hh
+ print [e]
+ print :mm
+ ;pause before drawing next clock
+ repeat 135 * 300 [] ; 60 seconds (vice)
+ runclock :hh :mm
+end
 
-TO POS :L :A
- HOME
- PENUP FD :L LT :A FD :L RT :A
-END
+to pos :l :a
+ home
+ penup fd :l lt :a fd :l rt :a
+end
 
-TO DT :HH :MM
- DRAW HT
- ;FORMATTING VALUES AS STRING TO GET LEADING ZEROS
- IF :HH = 0 THEN MAKE "HH "00
- IF :HH = 1 THEN MAKE "HH "01
- IF :HH = 2 THEN MAKE "HH "02
- IF :HH = 3 THEN MAKE "HH "03
- IF :HH = 4 THEN MAKE "HH "04
- IF :HH = 5 THEN MAKE "HH "05
- IF :HH = 6 THEN MAKE "HH "06
- IF :HH = 7 THEN MAKE "HH "07
- IF :HH = 8 THEN MAKE "HH "08
- IF :HH = 9 THEN MAKE "HH "09
- IF :MM = 0 THEN MAKE "MM "00
- IF :MM = 1 THEN MAKE "MM "01
- IF :MM = 2 THEN MAKE "MM "02
- IF :MM = 3 THEN MAKE "MM "03
- IF :MM = 4 THEN MAKE "MM "04
- IF :MM = 5 THEN MAKE "MM "05
- IF :MM = 6 THEN MAKE "MM "06
- IF :MM = 7 THEN MAKE "MM "07
- IF :MM = 8 THEN MAKE "MM "08
- IF :MM = 9 THEN MAKE "MM "09
- ;INITIAL POSITION
- PENCOLOR 1 POS 110 90 LT 90 FD 10 RT 90
- ;THOSE STATEMENTS ARE USED WHEN TESTING THE DT ROUTINE MANUALLY
- ;EXAMPLE "DT 22 44"
- ;TO PREVENT INVALID INPUT FROM THE USER
- IF :HH > 23 THEN PRINT "INVALID HOUR" STOP
- IF :MM > 59 THEN PRINT "INVALID MIN." STOP
- ; --- DEC UNITS HOUR
- IF FIRST(:HH}=0 THEN BK 35 LT 90 FD 20 RT 90 DRAW0
- IF FIRST(:HH}=1 THEN DRAW1
- IF FIRST(:HH}=2 THEN LT 90 FD 15 RT 90 DRAW2
- ; --- HOUR UNITS
- IF LAST(:HH)=0  THEN BK 35 LT 90 FD 10 RT 90 DRAW0
- IF LAST(:HH)=1  THEN DRAW1
- IF LAST(:HH)=2  THEN DRAW2
- IF LAST(:HH)=3  THEN RT 90 FD 05 RT 90 DRAW3
- IF LAST(:HH)=4  THEN DRAW4
- IF LAST(:HH)=5  THEN RT 45 DRAW5
- IF LAST(:HH)=6  THEN RT 90 FD 30 LT 90 DRAW6
- IF LAST(:HH)=7  THEN RT 90 DRAW7
- IF LAST(:HH)=8  THEN BK 80 LT 90 FD 15 RT 90 DRAW8
- IF LAST(:HH)=9  THEN BK 35 LT 90 FD 15 RT 90 DRAW9
- ; --- COLON
- RT 90 FD 55 LT 90 DRAWCOLON
- ; --- DEC UNITS OF MINUTE
- PENCOLOR 7 POS 110 90 RT 90 FD 160 LT 90
- IF FIRST(:MM)=0 THEN BK 35 LT 90 FD 20 RT 90 DRAW0
- IF FIRST(:MM)=1 THEN DRAW1
- IF FIRST(:MM)=2 THEN LT 90 FD 20 RT 90 DRAW2
- IF FIRST(:MM)=3 THEN LT 90 FD 15 RT 90 DRAW3
- IF FIRST(:MM)=4 THEN LT 90 FD 20 RT 90 DRAW4
- IF FIRST(:MM)=5 THEN RT 45 DRAW5
- ; --- MINUTE UNITS
- PENCOLOR 7 POS 110 90 RT 90 FD 220 LT 90
- IF LAST(:MM)=0 THEN BK 35 LT 90 FD 20 RT 90 DRAW0
- IF LAST(:MM)=1 THEN DRAW1
- IF LAST(:MM)=2 THEN DRAW2
- IF LAST(:MM)=3 THEN DRAW3
- IF LAST(:MM)=4 THEN DRAW4
- IF LAST(:MM)=5 THEN RT 45 RAW5
- IF LAST(:MM)=6 THEN RT 90 FD 30 RT 90 DRAW6
- IF LAST(:MM)=7 THEN RT 90 DRAW7
- IF LAST(:MM)=8 THEN BK 80 LT 90 FD 15 RT 90 DRAW8
- IF LAST(:MM)=9 THEN BK 35 LT 90 FD 15 RT 90 DRAW9
-END
+to dt :hh :mm
+ draw ht
+ ;formatting values as string to get leading zeros
+ if :hh = 0 then make "hh "00
+ if :hh = 1 then make "hh "01
+ if :hh = 2 then make "hh "02
+ if :hh = 3 then make "hh "03
+ if :hh = 4 then make "hh "04
+ if :hh = 5 then make "hh "05
+ if :hh = 6 then make "hh "06
+ if :hh = 7 then make "hh "07
+ if :hh = 8 then make "hh "08
+ if :hh = 9 then make "hh "09
+ if :mm = 0 then make "mm "00
+ if :mm = 1 then make "mm "01
+ if :mm = 2 then make "mm "02
+ if :mm = 3 then make "mm "03
+ if :mm = 4 then make "mm "04
+ if :mm = 5 then make "mm "05
+ if :mm = 6 then make "mm "06
+ if :mm = 7 then make "mm "07
+ if :mm = 8 then make "mm "08
+ if :mm = 9 then make "mm "09
+ ;initial position
+ pencolor 1 pos 110 90 lt 90 fd 10 rt 90
+ ;those statements are used when testing the dt routine manually
+ ;example "dt 22 44"
+ ;to prevent invalid input from the user
+ if :hh > 23 then print "invalid hour" stop
+ if :mm > 59 then print "invalid min." stop
+ ; --- dec units hour
+ if first(:hh}=0 then bk 35 lt 90 fd 20 rt 90 draw0
+ if first(:hh}=1 then draw1
+ if first(:hh}=2 then lt 90 fd 15 rt 90 draw2
+ ; --- hour units
+ if last(:hh)=0  then bk 35 lt 90 fd 10 rt 90 draw0
+ if last(:hh)=1  then draw1
+ if last(:hh)=2  then draw2
+ if last(:hh)=3  then rt 90 fd 05 rt 90 draw3
+ if last(:hh)=4  then draw4
+ if last(:hh)=5  then rt 45 draw5
+ if last(:hh)=6  then rt 90 fd 30 lt 90 draw6
+ if last(:hh)=7  then rt 90 draw7
+ if last(:hh)=8  then bk 80 lt 90 fd 15 rt 90 draw8
+ if last(:hh)=9  then bk 35 lt 90 fd 15 rt 90 draw9
+ ; --- colon
+ rt 90 fd 55 lt 90 drawcolon
+ ; --- dec units of minute
+ pencolor 7 pos 110 90 rt 90 fd 160 lt 90
+ if first(:mm)=0 then bk 35 lt 90 fd 20 rt 90 draw0
+ if first(:mm)=1 then draw1
+ if first(:mm)=2 then lt 90 fd 20 rt 90 draw2
+ if first(:mm)=3 then lt 90 fd 15 rt 90 draw3
+ if first(:mm)=4 then lt 90 fd 20 rt 90 draw4
+ if first(:mm)=5 then rt 45 draw5
+ ; --- minute units
+ pencolor 7 pos 110 90 rt 90 fd 220 lt 90
+ if last(:mm)=0 then bk 35 lt 90 fd 20 rt 90 draw0
+ if last(:mm)=1 then draw1
+ if last(:mm)=2 then draw2
+ if last(:mm)=3 then draw3
+ if last(:mm)=4 then draw4
+ if last(:mm)=5 then rt 45 raw5
+ if last(:mm)=6 then rt 90 fd 30 rt 90 draw6
+ if last(:mm)=7 then rt 90 draw7
+ if last(:mm)=8 then bk 80 lt 90 fd 15 rt 90 draw8
+ if last(:mm)=9 then bk 35 lt 90 fd 15 rt 90 draw9
+end
 
-TO DRAWCOLON
- PENCOLOR 3
- HOME PENUP LT 90 FD 15 RT 90 FD 50 PENDOWN
- REPEAT 6 [FD 5 RT 360/5]
- PENUP HOME LT 90 FD 15 RT 90 FD 70 PENDOWN
- REPEAT 6 [FD 5 RT 360/5]
- PENUP
-END
+to drawcolon
+ pencolor 3
+ home penup lt 90 fd 15 rt 90 fd 50 pendown
+ repeat 6 [fd 5 rt 360/5]
+ penup home lt 90 fd 15 rt 90 fd 70 pendown
+ repeat 6 [fd 5 rt 360/5]
+ penup
+end
 
-TO DRAW0
- PENDOWN
- REPEAT 4 [FD 20 RT 360/8]
- FD 45
- REPEAT 4 [FD 20 RT 360/8]
- FD 45
- PENUP
-END
+to draw0
+ pendown
+ repeat 4 [fd 20 rt 360/8]
+ fd 45
+ repeat 4 [fd 20 rt 360/8]
+ fd 45
+ penup
+end
 
-TO DRAW1
- PENUP
- LT 90 LT 45
- FD 40
- RT 180 PENDOWN
- FD 40
- RT 90 RT 45
- FD 92
- PENUP RT 180
-END
+to draw1
+ penup
+ lt 90 lt 45
+ fd 40
+ rt 180 pendown
+ fd 40
+ rt 90 rt 45
+ fd 92
+ penup rt 180
+end
 
-TO DRAW2
- PENUP LT 90 LT 45 FD 20 RT 180
- PENDOWN FD 20 RT 450 FD 20 RT 450 FD 20
- RT 45 FD 20 RT 45 FD 55
- LT 45 FD 20 LT 90 FD 40
- PENUP LT 90
-END
+to draw2
+ penup lt 90 lt 45 fd 20 rt 180
+ pendown fd 20 rt 450 fd 20 rt 450 fd 20
+ rt 45 fd 20 rt 45 fd 55
+ lt 45 fd 20 lt 90 fd 40
+ penup lt 90
+end
 
-TO DRAW3
- PENUP LT 90 LT 45 FD 20 RT 180
- PENDOWN FD 20 RT 45 FD 20 RT 45 FD 15
- RT 45 FD 25
- RT 45 FD 15
- LT 90 FD 15
- RT 45 FD 25
- RT 45 FD 15
- RT 45 FD 20
- PENUP
-END
+to draw3
+ penup lt 90 lt 45 fd 20 rt 180
+ pendown fd 20 rt 45 fd 20 rt 45 fd 15
+ rt 45 fd 25
+ rt 45 fd 15
+ lt 90 fd 15
+ rt 45 fd 25
+ rt 45 fd 15
+ rt 45 fd 20
+ penup
+end
 
-TO DRAW4
- PENDOWN BK 40 RT 90 FD 35 LT 90 FD 40
- BK 85
- PENUP
-END
+to draw4
+ pendown bk 40 rt 90 fd 35 lt 90 fd 40
+ bk 85
+ penup
+end
 
-TO DRAW5
- PENUP LT 90 LT 45 FD 20 RT 180 FD 40
- PENDOWN BK 40 RT 90 FD 20 LT 45 FD 15
- LT 45 FD 20 RT 45 FD 15 RT 45 FD 40
- RT 45 FD 15 RT 45 FD 30
- PENUP
-END
+to draw5
+ penup lt 90 lt 45 fd 20 rt 180 fd 40
+ pendown bk 40 rt 90 fd 20 lt 45 fd 15
+ lt 45 fd 20 rt 45 fd 15 rt 45 fd 40
+ rt 45 fd 15 rt 45 fd 30
+ penup
+end
 
-TO DRAW6
- PENUP RT 45 BK 80
- PENDOWN REPEAR 8 [FD 20 RT 360/8]
- LT 45
- FD 40 RT 45 FD 20 RT 45 FD 20
- PENUP
-END
+to draw6
+ penup rt 45 bk 80
+ pendown repear 8 [fd 20 rt 360/8]
+ lt 45
+ fd 40 rt 45 fd 20 rt 45 fd 20
+ penup
+end
 
-TO DRAW7
- PENUP BK 20
- PENDOWN
- FD 40 RT 90 FD 25 RT 45
- FD 25 LT 45 FD 45
- PENUP
-END
+to draw7
+ penup bk 20
+ pendown
+ fd 40 rt 90 fd 25 rt 45
+ fd 25 lt 45 fd 49
+ penup
+end
 
-TO DRAW8
- PENDOWN
- REPEAT 8 [FD 20 RT 360/8]
- PENUP FD 47 PENDOWN
- REPEAT 8 [FD 20 RT 360/8]
- PENUP
-END
+to draw8
+ pendown
+ repeat 8 [fd 20 rt 360/8]
+ penup fd 47 pendown
+ repeat 8 [fd 20 rt 360/8]
+ penup
+end
 
-TO DRAW9
- PENDOWN
- REPEAT 8 [FD 20 RT 360/8]
- PENUP BK 20 LT 45 BK 20 LT 45 BK 20 LT 45 BK 20 LT 45 BK 20
- PENDOWN FD 40 RT 45 FD 20 RT 45 FD 20
- PENUP
-END
+to draw9
+ pendown
+ repeat 8 [fd 20 rt 360/8]
+ penup bk 20 lt 45 bk 20 lt 45 bk 20 lt 45 bk 20 lt 45 bk 20
+ pendown fd 43 rt 45 fd 20 rt 45 fd 20
+ penup
+end
