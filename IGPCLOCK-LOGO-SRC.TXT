@@ -56,9 +56,9 @@ to dt :hh :mm
  if :hh > 23 then print "invalid hour" stop
  if :mm > 59 then print "invalid min." stop
  ; --- dec units hour
- if first(:hh}=0 then bk 35 lt 90 fd 20 rt 90 draw0
- if first(:hh}=1 then draw1
- if first(:hh}=2 then lt 90 fd 15 rt 90 draw2
+ if first(:hh)=0 then bk 35 lt 90 fd 20 rt 90 draw0
+ if first(:hh)=1 then draw1
+ if first(:hh)=2 then lt 90 fd 15 rt 90 draw2
  ; --- hour units
  if last(:hh)=0  then bk 35 lt 90 fd 10 rt 90 draw0
  if last(:hh)=1  then draw1
@@ -85,7 +85,7 @@ to dt :hh :mm
  if last(:mm)=0 then bk 35 lt 90 fd 20 rt 90 draw0
  if last(:mm)=1 then draw1
  if last(:mm)=2 then draw2
- if last(:mm)=3 then draw3
+ if last(:mm)=3 then  lt 90 fd 20 rt 90 draw3
  if last(:mm)=4 then draw4
  if last(:mm)=5 then rt 45 raw5
  if last(:mm)=6 then rt 90 fd 30 rt 90 draw6
