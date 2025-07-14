@@ -16,7 +16,7 @@ to clock :hh :mm
  print [e]
  print :mm
  ;pause before drawing next clock
- repeat 135 * 300 [] ; 60 seconds (vice)
+ repeat 85 * 300 [] ; 60 seconds (vice for trekstor tablets)
  clock :hh :mm
 end
 
@@ -63,8 +63,8 @@ to dt :hh :mm
  if last(:hh)=0  then bk 35 lt 90 fd 10 rt 90 draw0
  if last(:hh)=1  then draw1
  if last(:hh)=2  then draw2
- if last(:hh)=3  then rt 90 fd 05 rt 90 draw3
- if last(:hh)=4  then draw4
+ if last(:hh)=3  then rt 90 fd 1  rt 90 draw3
+ if last(:hh)=4  then lt 90 fd 05 rt 90 draw4
  if last(:hh)=5  then rt 45 draw5
  if last(:hh)=6  then rt 90 fd 30 lt 90 draw6
  if last(:hh)=7  then rt 90 draw7
@@ -83,7 +83,7 @@ to dt :hh :mm
  ; --- minute units
  pencolor 7 pos 110 90 rt 90 fd 220 lt 90
  if last(:mm)=0 then bk 35 lt 90 fd 20 rt 90 draw0
- if last(:mm)=1 then draw1
+ if last(:mm)=1 then rt 90 fd 15 lt 90 draw1
  if last(:mm)=2 then draw2
  if last(:mm)=3 then  lt 90 fd 20 rt 90 draw3
  if last(:mm)=4 then draw4
