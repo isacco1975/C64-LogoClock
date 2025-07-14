@@ -150,7 +150,7 @@ to draw4
 end
 
 to draw5
- penup lt 90 lt 45 fd 30 rt 180 fd 40
+ penup lt 90 lt 45 fd 20 rt 180 fd 40
  pendown bk 40 rt 90 fd 20 lt 45 fd 15
  lt 45 fd 20 rt 45 fd 15 rt 45 fd 40
  rt 45 fd 15 rt 45 fd 30
