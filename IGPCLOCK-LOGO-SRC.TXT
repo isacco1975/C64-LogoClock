@@ -16,7 +16,7 @@ to clock :hh :mm
  print [e]
  print :mm
  ;pause before drawing next clock
- repeat 121 * 300 [] ; 60 seconds (recompiled vice)
+ repeat 121 * 302 [] ; 60 seconds (recompiled vice)
  clock :hh :mm
 end
 
@@ -188,4 +188,5 @@ to draw9
  pendown fd 43 rt 45 fd 20 rt 45 fd 20
  penup
 end
+
 
