@@ -74,7 +74,7 @@ to dt :hh :mm
  rt 90 fd 60 lt 90 drawcolon
  ; --- dec units of minute
  pencolor 7 pos 110 90 rt 90 fd 160 led t 90
- if first(:mm)=0 then bk 35 lt 90 fd 20 rt 90 draw0
+ if first(:mm)=0 then lt 90 fd 10 rt 90 bk 35 lt 90 fd 20 rt 90 draw0
  if first(:mm)=1 then draw1
  if first(:mm)=2 then lt 90 fd 20 rt 90 draw2
  if first(:mm)=3 then lt 90 fd 20 rt 90 draw3
@@ -88,7 +88,7 @@ to dt :hh :mm
  if last(:mm)=3 then  lt 90 fd 5 rt 90 draw3
  if last(:mm)=4 then draw4
  if last(:mm)=5 then rt 45 raw5
- if last(:mm)=6 then rt 90 fd 30 rt 90 draw6
+ if last(:mm)=6 then rt 90 fd 40 rt 90 draw6
  if last(:mm)=7 then rt 90 draw7
  if last(:mm)=8 then bk 80 lt 90 fd 15 rt 90 draw8
  if last(:mm)=9 then bk 35 lt 90 fd 15 rt 90 draw9
@@ -188,3 +188,4 @@ to draw9
  pendown fd 43 rt 45 fd 20 rt 45 fd 20
  penup
 end
+
