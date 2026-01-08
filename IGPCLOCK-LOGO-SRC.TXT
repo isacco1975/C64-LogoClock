@@ -79,7 +79,7 @@ to dt :hh :mm
  if first(:mm)=2 then lt 90 fd 20 rt 90 draw2
  if first(:mm)=3 then lt 90 fd 20 rt 90 draw3
  if first(:mm)=4 then lt 90 fd 20 rt 90 draw4
- if first(:mm)=5 then rt 45 draw5
+ if first(:mm)=5 then lt 90 fd 10 rt 90 rt 45 draw5
  ; --- minute units
  pencolor 7 pos 110 90 rt 90 fd 220 lt 90
  if last(:mm)=0 then bk 35 lt 90 fd 20 rt 90 draw0
@@ -188,5 +188,6 @@ to draw9
  pendown fd 43 rt 45 fd 20 rt 45 fd 20
  penup
 end
+
 
 
