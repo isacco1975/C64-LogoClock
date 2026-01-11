@@ -1,4 +1,16 @@
 to clock :hh :mm
+ ;
+ ; ====================
+ ; === main routine ===
+ ; ====================
+ ;
+ ; ***********************************
+ ; copyright 2024 / 2026 igp tech blog
+ ; free usage under gpl license
+ ; ************************************
+ ; 
+ ; a simple digital clock made in logo
+ ;
  background 0
  make "mm :mm + 1
  if :mm > 59 then make "mm 0 make "hh :hh + 1
@@ -8,7 +20,7 @@ to clock :hh :mm
  print :hh
  print [e]
  print :mm
- repeat 121 * 301 [] ; 60 seconds (recompiled vice)
+ repeat 121 * 305 [] ; 60 seconds (recompiled vice)
  clock :hh :mm
 end
 
@@ -46,20 +58,28 @@ to dt :hh :mm
  if first(:hh)=0 then bk 35 lt 90 fd 20 rt 90 draw0 make "j "47 make "v "1
  if first(:hh)=1 then make "k "30 draw1 make "j "51 make "v "-6
  if first(:hh)=2 then lt 90 fd 15 rt 90 draw2 make "k "30
- if last(:hh)=0  then bk 35 lt 90 fd 10 rt 90 draw0 
- if last(:hh)=1  then rt 90 fd 90 lt 90 fd 31 draw1 make "k "33
- if last(:hh)=2  then lt 90 fd 5 rt 90 draw2
- if last(:hh)=3  then fd 30 rt 90 fd 70 lt 90  draw3
+ if :hh=01 then fd 35 rt 90 fd 100 lt 90 draw1 
+ if :hh=21 then rt 180 lt 45 fd 25 rt 45 fd 90 lt 90 draw1 
+ if :hh=11 then fd 30 rt 90 fd 100 lt 90 draw1 
+ if :hh=02 then fd 35 lt 90 bk 75 rt 90 draw2
+ if :hh=12 then fd 28 lt 90 bk 75 rt 90 draw2
+ if :hh=22 then lt 90 bk 15 rt 90 bk 90 rt 90 draw2
+ if :hh=03 then fd 33 rt 90 fd 80 lt 90  draw3
+ if :hh=13 then fd 30 rt 90 fd 80 lt 90  draw3
+ if :hh=23 then rt 90 bk -11 rt 90 fd 85 lt 90  draw3
+ if :hh="00 then rt 90 fd 60 lt 90  draw0
  if last(:hh)=4  then fd 30 rt 90 fd 60 lt 90 draw4
  if last(:hh)=5  then fd :k rt 90 fd 90 lt 90 rt 45 draw5
- if last(:hh)=6  then fd 30 lt 90 bk 120 rt 90 draw6
- if last(:hh)=7  then rt 90 fd 75 lt 90 fd 31 rt 90 draw7
+ if :hh=16  then fd 28 lt 90 bk 120 rt 90 draw6
+ if :hh=06  then fd 31 lt 90 bk 120 rt 90 draw6
+ if :hh=07  then rt 90 fd 78 lt 90 fd 33 rt 90 draw7
+ if :hh=17  then rt 90 fd 78 lt 90 fd 28 rt 90 draw7
  if last(:hh)=8  then bk :j lt 90 bk 62 rt 90 draw8
  if last(:hh)=9  then fd :v lt 90 bk 55 rt 90 draw9
- rt 90 fd 80 lt 90 drawcolon
+ rt 90 fd 90 lt 90 drawcolon
  pencolor 7 pos 110 90 rt 90 fd 160 lt 90
  if first(:mm)=0 then lt 90 fd 10 rt 90 bk 35 lt 90 fd 20 rt 90 draw0
- if first(:mm)=1 then draw1
+ if first(:mm)=1 then make "k "30 draw1 make "j "51 make "v "-6
  if first(:mm)=2 then lt 90 fd 20 rt 90 draw2
  if first(:mm)=3 then lt 90 fd 20 rt 90 draw3
  if first(:mm)=4 then lt 90 fd 20 rt 90 draw4
@@ -204,11 +224,11 @@ to draw6
  penup rt 45 bk 80
  pendown repeat 8 [fd 20 rt 360/8]
  lt 45
- fd 40 rt 45 fd 20 rt 45 fd 20
+ fd 43 rt 45 fd 20 rt 45 fd 20
  rt 90 fd 8
  rt 90 fd 20
  lt 45 fd 10
- lt 45 fd 65
+ lt 45 fd 68
  lt 90 fd 33
  lt 90 fd 31
  lt 90 fd 31
@@ -246,7 +266,7 @@ to draw8
  penup
 end
 
-to draw9
+to draw9 
  pendown
  repeat 8 [fd 20 rt 360/8]
  penup bk 20 lt 45 bk 20 lt 45 bk 20 lt 45 bk 20 lt 45 bk 20
