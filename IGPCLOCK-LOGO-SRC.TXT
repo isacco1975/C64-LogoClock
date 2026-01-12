@@ -20,7 +20,7 @@ to clock :hh :mm
  print :hh
  print [e]
  print :mm
- repeat 100 * 300 [] ; 60 seconds (bookworm pi)
+ repeat 114 * 300 [] ; 60 seconds (bookworm pi)
  clock :hh :mm
 end
 
@@ -280,4 +280,5 @@ to draw9
  lt 90 fd 31
  penup
 end
+
 
