@@ -20,7 +20,7 @@ to clock :hh :mm
  print :hh
  print [e]
  print :mm
- repeat 121 * 305 [] ; 60 seconds (recompiled vice)
+ repeat 100 * 300 [] ; 60 seconds (bookworm pi)
  clock :hh :mm
 end
 
