@@ -1,16 +1,10 @@
 to clock :hh :mm
- ;
  ; ====================
  ; === main routine ===
  ; ====================
- ;
- ; ***********************************
  ; copyright 2024 / 2026 igp tech blog
  ; free usage under gpl license
- ; ************************************
- ; 
- ; a simple digital clock made in logo
- ;
+ ; -----------------------------------
  background 0
  make "mm :mm + 1
  if :mm > 59 then make "mm 0 make "hh :hh + 1
@@ -20,7 +14,7 @@ to clock :hh :mm
  print :hh
  print [e]
  print :mm
- repeat 114 * 300 [] ; 60 seconds (bookworm pi)
+ repeat 112 * 301 []
  clock :hh :mm
 end
 
@@ -30,7 +24,7 @@ to pos :l :a
 end
 
 to dt :hh :mm
- draw ht
+ draw st
  if :hh = 0 then make "hh "00
  if :hh = 1 then make "hh "01
  if :hh = 2 then make "hh "02
@@ -68,6 +62,8 @@ to dt :hh :mm
  if :hh=13 then fd 30 rt 90 fd 80 lt 90  draw3
  if :hh=23 then rt 90 bk -11 rt 90 fd 85 lt 90  draw3
  if :hh="00 then rt 90 fd 60 lt 90  draw0
+ if :hh=10 then bk 5 rt 90 fd 70 lt 90 draw0
+ if :hh=20 then bk 80 rt 90 bk 20 draw0
  if last(:hh)=4  then fd 30 rt 90 fd 60 lt 90 draw4
  if last(:hh)=5  then fd :k rt 90 fd 90 lt 90 rt 45 draw5
  if :hh=16  then fd 28 lt 90 bk 120 rt 90 draw6
@@ -90,7 +86,7 @@ to dt :hh :mm
  if last(:mm)=2 then draw2
  if last(:mm)=3 then  lt 90 fd 5 rt 90 draw3
  if last(:mm)=4 then lt 90 fd 15 rt 90 draw4
- if last(:mm)=5 then rt 45 draw5
+ if last(:mm)=5 then rt 45 rt 45 fd 10 rt 45 lt 90 draw5
  if last(:mm)=6 then lt 90 bk 40 rt 90 draw6
  if last(:mm)=7 then rt 90 draw7
  if last(:mm)=8 then bk 80 lt 90 fd 15 rt 90 draw8
@@ -280,5 +276,4 @@ to draw9
  lt 90 fd 31
  penup
 end
-
 
